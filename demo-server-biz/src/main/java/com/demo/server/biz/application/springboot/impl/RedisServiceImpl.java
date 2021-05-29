@@ -42,7 +42,7 @@ public class RedisServiceImpl implements RedisService {
     public Integer getNextIntegerFromRedisAtomicInteger() {
         String key = "zlsd-asset-work-manage-ImpExpManageService-insert-20210515";
         log.info(LogUtils.getLogMessage("getNextIntegerFromRedisAtomicInteger", new ParametersToLog()
-                .addParameter("key", key), true));
+                .addParameter("key", key)));
         RedisAtomicInteger entityIdCounter = new RedisAtomicInteger(key, redisTemplate.getConnectionFactory());
         int increment = entityIdCounter.getAndIncrement();
         if (increment == 0) {

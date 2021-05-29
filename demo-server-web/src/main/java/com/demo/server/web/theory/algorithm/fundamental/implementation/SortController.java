@@ -81,10 +81,10 @@ public class SortController {
         Double[] sortedArray3 = sortService.timSortInArray(originalArray3, 0, originalArray3.length - 1, true);
         String[] sortedArray4 = sortService.timSortInArray(originalArray4, 0, originalArray4.length - 1, false);
         log.info(LogUtils.getLogMessage("timSortInArray", "Sort the sample arrays"));
-        log.info(LogUtils.getLogMessage("timSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1)), true));
-        log.info(LogUtils.getLogMessage("timSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2)), true));
-        log.info(LogUtils.getLogMessage("timSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3)), true));
-        log.info(LogUtils.getLogMessage("timSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4)), true));
+        log.info(LogUtils.getLogMessage("timSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1))));
+        log.info(LogUtils.getLogMessage("timSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2))));
+        log.info(LogUtils.getLogMessage("timSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3))));
+        log.info(LogUtils.getLogMessage("timSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4))));
         // Sort to test stability
         Student[] originalArray5 = Arrays.copyOf(this.originalArray5, this.originalArray5.length);
         Student[] originalArray6 = Arrays.copyOf(this.originalArray6, this.originalArray6.length);
@@ -95,17 +95,17 @@ public class SortController {
         Student[] sortedArray7 = sortService.timSortInArray(originalArray7, 0, originalArray7.length - 1, true);
         Student[] sortedArray8 = sortService.timSortInArray(originalArray8, 0, originalArray8.length - 1, false);
         log.info(LogUtils.getLogMessage("timSortInArray", "Sort to test stability"));
-        log.info(LogUtils.getLogMessage("timSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5)), true));
-        log.info(LogUtils.getLogMessage("timSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6)), true));
-        log.info(LogUtils.getLogMessage("timSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7)), true));
-        log.info(LogUtils.getLogMessage("timSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8)), true));
+        log.info(LogUtils.getLogMessage("timSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5))));
+        log.info(LogUtils.getLogMessage("timSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6))));
+        log.info(LogUtils.getLogMessage("timSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7))));
+        log.info(LogUtils.getLogMessage("timSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8))));
         // Sort huge amount of data
         Integer[] originalHugeArray1 = getHugeAmountOfIntegers();
         long timeMillisBeforeSort = SystemUtils.currentTimeMillis();
         Integer[] sortedHugeArray1 = sortService.timSortInArray(originalHugeArray1, 0, originalHugeArray1.length - 1, true);
         long timeMillisAfterSort = SystemUtils.currentTimeMillis();
         log.info(LogUtils.getLogMessage("timSortInArray", "Sort huge amount of data"));
-        log.info(LogUtils.getLogMessage("timSortInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length), true));
+        log.info(LogUtils.getLogMessage("timSortInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length)));
         // Return result
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
@@ -137,10 +137,10 @@ public class SortController {
         Double[] sortedArray3 = sortService.radixSortInArray(originalArray3, 0, originalArray3.length - 1, true, false, SortObjectEnum.NUMBER);
         String[] sortedArray4 = sortService.radixSortInArray(originalArray4, 0, originalArray4.length - 1, false, true, SortObjectEnum.STRING);
         log.info(LogUtils.getLogMessage("radixSortInArray", "Sort the sample arrays"));
-        log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1)), true));
-        log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2)), true));
-        log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3)), true));
-        log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4)), true));
+        log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1))));
+        log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2))));
+        log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3))));
+        log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4))));
         // Sort to test stability
         Student[] originalArray5 = Arrays.copyOf(this.originalArray5, this.originalArray5.length);
         Student[] originalArray6 = Arrays.copyOf(this.originalArray6, this.originalArray6.length);
@@ -151,17 +151,17 @@ public class SortController {
         Student[] sortedArray7 = sortService.radixSortInArray(originalArray7, 0, originalArray7.length - 1, true, false, SortObjectEnum.NUMBER);
         Student[] sortedArray8 = sortService.radixSortInArray(originalArray8, 0, originalArray8.length - 1, false, false, SortObjectEnum.STRING);
         log.info(LogUtils.getLogMessage("radixSortInArray", "Sort to test stability"));
-        log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5)), true));
-        log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6)), true));
-        log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7)), true));
-        log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8)), true));
+        log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5))));
+        log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6))));
+        log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7))));
+        log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8))));
         // Sort huge amount of data
         Integer[] originalHugeArray1 = getHugeAmountOfIntegers();
         long timeMillisBeforeSort = SystemUtils.currentTimeMillis();
         Integer[] sortedHugeArray1 = sortService.radixSortInArray(originalHugeArray1, 0, originalHugeArray1.length - 1, true, true, SortObjectEnum.NUMBER);
         long timeMillisAfterSort = SystemUtils.currentTimeMillis();
         log.info(LogUtils.getLogMessage("radixSortInArray", "Sort huge amount of data"));
-        log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length), true));
+        log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length)));
         // Return result
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
@@ -197,10 +197,10 @@ public class SortController {
         Double[] sortedArray3 = sortService.heapSortInArray(originalArray3, 0, originalArray3.length - 1, true, false);
         String[] sortedArray4 = sortService.heapSortInArray(originalArray4, 0, originalArray4.length - 1, false, true);
         log.info(LogUtils.getLogMessage("heapSortInArray", "Sort the sample arrays"));
-        log.info(LogUtils.getLogMessage("heapSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1)), true));
-        log.info(LogUtils.getLogMessage("heapSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2)), true));
-        log.info(LogUtils.getLogMessage("heapSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3)), true));
-        log.info(LogUtils.getLogMessage("heapSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4)), true));
+        log.info(LogUtils.getLogMessage("heapSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1))));
+        log.info(LogUtils.getLogMessage("heapSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2))));
+        log.info(LogUtils.getLogMessage("heapSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3))));
+        log.info(LogUtils.getLogMessage("heapSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4))));
         // Sort to test stability
         Student[] originalArray5 = Arrays.copyOf(this.originalArray5, this.originalArray5.length);
         Student[] originalArray6 = Arrays.copyOf(this.originalArray6, this.originalArray6.length);
@@ -211,17 +211,17 @@ public class SortController {
         Student[] sortedArray7 = sortService.heapSortInArray(originalArray7, 0, originalArray7.length - 1, true, false);
         Student[] sortedArray8 = sortService.heapSortInArray(originalArray8, 0, originalArray8.length - 1, false, false);
         log.info(LogUtils.getLogMessage("heapSortInArray", "Sort to test stability"));
-        log.info(LogUtils.getLogMessage("heapSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5)), true));
-        log.info(LogUtils.getLogMessage("heapSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6)), true));
-        log.info(LogUtils.getLogMessage("heapSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7)), true));
-        log.info(LogUtils.getLogMessage("heapSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8)), true));
+        log.info(LogUtils.getLogMessage("heapSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5))));
+        log.info(LogUtils.getLogMessage("heapSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6))));
+        log.info(LogUtils.getLogMessage("heapSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7))));
+        log.info(LogUtils.getLogMessage("heapSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8))));
         // Sort huge amount of data
         Integer[] originalHugeArray1 = getHugeAmountOfIntegers();
         long timeMillisBeforeSort = SystemUtils.currentTimeMillis();
         Integer[] sortedHugeArray1 = sortService.heapSortInArray(originalHugeArray1, 0, originalHugeArray1.length - 1, true, true);
         long timeMillisAfterSort = SystemUtils.currentTimeMillis();
         log.info(LogUtils.getLogMessage("heapSortInArray", "Sort huge amount of data"));
-        log.info(LogUtils.getLogMessage("heapSortInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length), true));
+        log.info(LogUtils.getLogMessage("heapSortInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length)));
         // Return result
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
@@ -253,27 +253,27 @@ public class SortController {
         Double[] sortedArray3 = sortService.mergeSortInArray(originalArray3, 0, originalArray3.length - 1, true);
         String[] sortedArray4 = sortService.mergeSortInArray(originalArray4, 0, originalArray4.length - 1, false);
         log.info(LogUtils.getLogMessage("mergeSortInArray", "Sort the sample arrays"));
-        log.info(LogUtils.getLogMessage("mergeSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1)), true));
-        log.info(LogUtils.getLogMessage("mergeSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2)), true));
-        log.info(LogUtils.getLogMessage("mergeSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3)), true));
-        log.info(LogUtils.getLogMessage("mergeSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4)), true));
+        log.info(LogUtils.getLogMessage("mergeSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1))));
+        log.info(LogUtils.getLogMessage("mergeSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2))));
+        log.info(LogUtils.getLogMessage("mergeSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3))));
+        log.info(LogUtils.getLogMessage("mergeSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4))));
         // Sort to test stability
         Student[] sortedArray5 = sortService.mergeSortInArray(originalArray5, 0, originalArray5.length - 1, true);
         Student[] sortedArray6 = sortService.mergeSortInArray(originalArray6, 0, originalArray6.length - 1, false);
         Student[] sortedArray7 = sortService.mergeSortInArray(originalArray7, 0, originalArray7.length - 1, true);
         Student[] sortedArray8 = sortService.mergeSortInArray(originalArray8, 0, originalArray8.length - 1, false);
         log.info(LogUtils.getLogMessage("mergeSortInArray", "Sort to test stability"));
-        log.info(LogUtils.getLogMessage("mergeSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5)), true));
-        log.info(LogUtils.getLogMessage("mergeSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6)), true));
-        log.info(LogUtils.getLogMessage("mergeSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7)), true));
-        log.info(LogUtils.getLogMessage("mergeSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8)), true));
+        log.info(LogUtils.getLogMessage("mergeSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5))));
+        log.info(LogUtils.getLogMessage("mergeSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6))));
+        log.info(LogUtils.getLogMessage("mergeSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7))));
+        log.info(LogUtils.getLogMessage("mergeSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8))));
         // Sort huge amount of data
         Integer[] originalHugeArray1 = getHugeAmountOfIntegers();
         long timeMillisBeforeSort = SystemUtils.currentTimeMillis();
         Integer[] sortedHugeArray1 = sortService.mergeSortInArray(originalHugeArray1, 0, originalHugeArray1.length - 1, true);
         long timeMillisAfterSort = SystemUtils.currentTimeMillis();
         log.info(LogUtils.getLogMessage("mergeSortInArray", "Sort huge amount of data"));
-        log.info(LogUtils.getLogMessage("mergeSortInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length), true));
+        log.info(LogUtils.getLogMessage("mergeSortInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length)));
         // Return result
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
@@ -309,10 +309,10 @@ public class SortController {
         Double[] sortedArray3 = sortService.quickSortInArray(originalArray3, 0, originalArray3.length - 1, true, false);
         String[] sortedArray4 = sortService.quickSortInArray(originalArray4, 0, originalArray4.length - 1, false, true);
         log.info(LogUtils.getLogMessage("quickSortInArray", "Sort the sample arrays"));
-        log.info(LogUtils.getLogMessage("quickSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1)), true));
-        log.info(LogUtils.getLogMessage("quickSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2)), true));
-        log.info(LogUtils.getLogMessage("quickSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3)), true));
-        log.info(LogUtils.getLogMessage("quickSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4)), true));
+        log.info(LogUtils.getLogMessage("quickSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1))));
+        log.info(LogUtils.getLogMessage("quickSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2))));
+        log.info(LogUtils.getLogMessage("quickSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3))));
+        log.info(LogUtils.getLogMessage("quickSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4))));
         // Sort to test stability
         Student[] originalArray5 = Arrays.copyOf(this.originalArray5, this.originalArray5.length);
         Student[] originalArray6 = Arrays.copyOf(this.originalArray6, this.originalArray6.length);
@@ -323,17 +323,17 @@ public class SortController {
         Student[] sortedArray7 = sortService.quickSortInArray(originalArray7, 0, originalArray7.length - 1, true, false);
         Student[] sortedArray8 = sortService.quickSortInArray(originalArray8, 0, originalArray8.length - 1, false, false);
         log.info(LogUtils.getLogMessage("quickSortInArray", "Sort to test stability"));
-        log.info(LogUtils.getLogMessage("quickSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5)), true));
-        log.info(LogUtils.getLogMessage("quickSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6)), true));
-        log.info(LogUtils.getLogMessage("quickSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7)), true));
-        log.info(LogUtils.getLogMessage("quickSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8)), true));
+        log.info(LogUtils.getLogMessage("quickSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5))));
+        log.info(LogUtils.getLogMessage("quickSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6))));
+        log.info(LogUtils.getLogMessage("quickSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7))));
+        log.info(LogUtils.getLogMessage("quickSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8))));
         // Sort huge amount of data
         Integer[] originalHugeArray1 = getHugeAmountOfIntegers();
         long timeMillisBeforeSort = SystemUtils.currentTimeMillis();
         Integer[] sortedHugeArray1 = sortService.quickSortInArray(originalHugeArray1, 0, originalHugeArray1.length - 1, true, true);
         long timeMillisAfterSort = SystemUtils.currentTimeMillis();
         log.info(LogUtils.getLogMessage("quickSortInArray", "Sort huge amount of data"));
-        log.info(LogUtils.getLogMessage("quickSortInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length), true));
+        log.info(LogUtils.getLogMessage("quickSortInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length)));
         // Return result
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
@@ -369,10 +369,10 @@ public class SortController {
         Double[] sortedArray3 = sortService.insertSortWithDiminishingIncrementInArray(originalArray3, 0, originalArray3.length - 1, true, false);
         String[] sortedArray4 = sortService.insertSortWithDiminishingIncrementInArray(originalArray4, 0, originalArray4.length - 1, false, true);
         log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", "Sort the sample arrays"));
-        log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1)), true));
-        log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2)), true));
-        log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3)), true));
-        log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4)), true));
+        log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1))));
+        log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2))));
+        log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3))));
+        log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4))));
         // Sort to test stability
         Student[] originalArray5 = Arrays.copyOf(this.originalArray5, this.originalArray5.length);
         Student[] originalArray6 = Arrays.copyOf(this.originalArray6, this.originalArray6.length);
@@ -383,17 +383,17 @@ public class SortController {
         Student[] sortedArray7 = sortService.insertSortWithDiminishingIncrementInArray(originalArray7, 0, originalArray7.length - 1, true, false);
         Student[] sortedArray8 = sortService.insertSortWithDiminishingIncrementInArray(originalArray8, 0, originalArray8.length - 1, false, false);
         log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", "Sort to test stability"));
-        log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5)), true));
-        log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6)), true));
-        log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7)), true));
-        log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8)), true));
+        log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5))));
+        log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6))));
+        log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7))));
+        log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8))));
         // Sort huge amount of data
         Integer[] originalHugeArray1 = getHugeAmountOfIntegers();
         long timeMillisBeforeSort = SystemUtils.currentTimeMillis();
         Integer[] sortedHugeArray1 = sortService.insertSortWithDiminishingIncrementInArray(originalHugeArray1, 0, originalHugeArray1.length - 1, true, true);
         long timeMillisAfterSort = SystemUtils.currentTimeMillis();
         log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", "Sort huge amount of data"));
-        log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length), true));
+        log.info(LogUtils.getLogMessage("insertSortWithDiminishingIncrementInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length)));
         // Return result
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
@@ -429,10 +429,10 @@ public class SortController {
         Double[] sortedArray3 = sortService.insertSortWithBinarySearchInArray(originalArray3, 0, originalArray3.length - 1, true, false);
         String[] sortedArray4 = sortService.insertSortWithBinarySearchInArray(originalArray4, 0, originalArray4.length - 1, false, true);
         log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", "Sort the sample arrays"));
-        log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1)), true));
-        log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2)), true));
-        log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3)), true));
-        log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4)), true));
+        log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1))));
+        log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2))));
+        log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3))));
+        log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4))));
         // Sort to test stability
         Student[] originalArray5 = Arrays.copyOf(this.originalArray5, this.originalArray5.length);
         Student[] originalArray6 = Arrays.copyOf(this.originalArray6, this.originalArray6.length);
@@ -443,17 +443,17 @@ public class SortController {
         Student[] sortedArray7 = sortService.insertSortWithBinarySearchInArray(originalArray7, 0, originalArray7.length - 1, true, false);
         Student[] sortedArray8 = sortService.insertSortWithBinarySearchInArray(originalArray8, 0, originalArray8.length - 1, false, false);
         log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", "Sort to test stability"));
-        log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5)), true));
-        log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6)), true));
-        log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7)), true));
-        log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8)), true));
+        log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5))));
+        log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6))));
+        log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7))));
+        log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8))));
         // Sort huge amount of data
         Integer[] originalHugeArray1 = getHugeAmountOfIntegers();
         long timeMillisBeforeSort = SystemUtils.currentTimeMillis();
         Integer[] sortedHugeArray1 = sortService.insertSortWithBinarySearchInArray(originalHugeArray1, 0, originalHugeArray1.length - 1, true, true);
         long timeMillisAfterSort = SystemUtils.currentTimeMillis();
         log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", "Sort huge amount of data"));
-        log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length), true));
+        log.info(LogUtils.getLogMessage("insertSortWithBinarySearchInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length)));
         // Return result
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
@@ -489,10 +489,10 @@ public class SortController {
         Double[] sortedArray3 = sortService.insertSortInArray(originalArray3, 0, originalArray3.length - 1, true, false);
         String[] sortedArray4 = sortService.insertSortInArray(originalArray4, 0, originalArray4.length - 1, false, true);
         log.info(LogUtils.getLogMessage("insertSortInArray", "Sort the sample arrays"));
-        log.info(LogUtils.getLogMessage("insertSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1)), true));
-        log.info(LogUtils.getLogMessage("insertSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2)), true));
-        log.info(LogUtils.getLogMessage("insertSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3)), true));
-        log.info(LogUtils.getLogMessage("insertSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4)), true));
+        log.info(LogUtils.getLogMessage("insertSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1))));
+        log.info(LogUtils.getLogMessage("insertSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2))));
+        log.info(LogUtils.getLogMessage("insertSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3))));
+        log.info(LogUtils.getLogMessage("insertSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4))));
         // Sort to test stability
         Student[] originalArray5 = Arrays.copyOf(this.originalArray5, this.originalArray5.length);
         Student[] originalArray6 = Arrays.copyOf(this.originalArray6, this.originalArray6.length);
@@ -503,17 +503,17 @@ public class SortController {
         Student[] sortedArray7 = sortService.insertSortInArray(originalArray7, 0, originalArray7.length - 1, true, false);
         Student[] sortedArray8 = sortService.insertSortInArray(originalArray8, 0, originalArray8.length - 1, false, false);
         log.info(LogUtils.getLogMessage("insertSortInArray", "Sort to test stability"));
-        log.info(LogUtils.getLogMessage("insertSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5)), true));
-        log.info(LogUtils.getLogMessage("insertSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6)), true));
-        log.info(LogUtils.getLogMessage("insertSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7)), true));
-        log.info(LogUtils.getLogMessage("insertSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8)), true));
+        log.info(LogUtils.getLogMessage("insertSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5))));
+        log.info(LogUtils.getLogMessage("insertSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6))));
+        log.info(LogUtils.getLogMessage("insertSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7))));
+        log.info(LogUtils.getLogMessage("insertSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8))));
         // Sort huge amount of data
         Integer[] originalHugeArray1 = getHugeAmountOfIntegers();
         long timeMillisBeforeSort = SystemUtils.currentTimeMillis();
         Integer[] sortedHugeArray1 = sortService.insertSortInArray(originalHugeArray1, 0, originalHugeArray1.length - 1, true, true);
         long timeMillisAfterSort = SystemUtils.currentTimeMillis();
         log.info(LogUtils.getLogMessage("insertSortInArray", "Sort huge amount of data"));
-        log.info(LogUtils.getLogMessage("insertSortInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length), true));
+        log.info(LogUtils.getLogMessage("insertSortInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length)));
         // Return result
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
@@ -549,10 +549,10 @@ public class SortController {
         Double[] sortedArray3 = sortService.selectSortInArray(originalArray3, 0, originalArray3.length - 1, true, false);
         String[] sortedArray4 = sortService.selectSortInArray(originalArray4, 0, originalArray4.length - 1, false, true);
         log.info(LogUtils.getLogMessage("selectSortInArray", "Sort the sample arrays"));
-        log.info(LogUtils.getLogMessage("selectSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1)), true));
-        log.info(LogUtils.getLogMessage("selectSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2)), true));
-        log.info(LogUtils.getLogMessage("selectSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3)), true));
-        log.info(LogUtils.getLogMessage("selectSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4)), true));
+        log.info(LogUtils.getLogMessage("selectSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1))));
+        log.info(LogUtils.getLogMessage("selectSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2))));
+        log.info(LogUtils.getLogMessage("selectSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3))));
+        log.info(LogUtils.getLogMessage("selectSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4))));
         // Sort to test stability
         Student[] originalArray5 = Arrays.copyOf(this.originalArray5, this.originalArray5.length);
         Student[] originalArray6 = Arrays.copyOf(this.originalArray6, this.originalArray6.length);
@@ -563,17 +563,17 @@ public class SortController {
         Student[] sortedArray7 = sortService.selectSortInArray(originalArray7, 0, originalArray7.length - 1, true, false);
         Student[] sortedArray8 = sortService.selectSortInArray(originalArray8, 0, originalArray8.length - 1, false, false);
         log.info(LogUtils.getLogMessage("selectSortInArray", "Sort to test stability"));
-        log.info(LogUtils.getLogMessage("selectSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5)), true));
-        log.info(LogUtils.getLogMessage("selectSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6)), true));
-        log.info(LogUtils.getLogMessage("selectSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7)), true));
-        log.info(LogUtils.getLogMessage("selectSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8)), true));
+        log.info(LogUtils.getLogMessage("selectSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5))));
+        log.info(LogUtils.getLogMessage("selectSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6))));
+        log.info(LogUtils.getLogMessage("selectSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7))));
+        log.info(LogUtils.getLogMessage("selectSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8))));
         // Sort huge amount of data
         Integer[] originalHugeArray1 = getHugeAmountOfIntegers();
         long timeMillisBeforeSort = SystemUtils.currentTimeMillis();
         Integer[] sortedHugeArray1 = sortService.selectSortInArray(originalHugeArray1, 0, originalHugeArray1.length - 1, true, true);
         long timeMillisAfterSort = SystemUtils.currentTimeMillis();
         log.info(LogUtils.getLogMessage("selectSortInArray", "Sort huge amount of data"));
-        log.info(LogUtils.getLogMessage("selectSortInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length), true));
+        log.info(LogUtils.getLogMessage("selectSortInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length)));
         // Return result
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
@@ -609,10 +609,10 @@ public class SortController {
         Double[] sortedArray3 = sortService.bubbleSortInArray(originalArray3, 0, originalArray3.length - 1, true, false);
         String[] sortedArray4 = sortService.bubbleSortInArray(originalArray4, 0, originalArray4.length - 1, false, true);
         log.info(LogUtils.getLogMessage("bubbleSortInArray", "Sort the sample arrays"));
-        log.info(LogUtils.getLogMessage("bubbleSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1)), true));
-        log.info(LogUtils.getLogMessage("bubbleSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2)), true));
-        log.info(LogUtils.getLogMessage("bubbleSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3)), true));
-        log.info(LogUtils.getLogMessage("bubbleSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4)), true));
+        log.info(LogUtils.getLogMessage("bubbleSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1))));
+        log.info(LogUtils.getLogMessage("bubbleSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2))));
+        log.info(LogUtils.getLogMessage("bubbleSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray3)).addParameter("Asc-sorted array", Arrays.asList(sortedArray3))));
+        log.info(LogUtils.getLogMessage("bubbleSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray4)).addParameter("Desc-sorted array", Arrays.asList(sortedArray4))));
         // Sort to test stability
         Student[] originalArray5 = Arrays.copyOf(this.originalArray5, this.originalArray5.length);
         Student[] originalArray6 = Arrays.copyOf(this.originalArray6, this.originalArray6.length);
@@ -623,17 +623,17 @@ public class SortController {
         Student[] sortedArray7 = sortService.bubbleSortInArray(originalArray7, 0, originalArray7.length - 1, true, false);
         Student[] sortedArray8 = sortService.bubbleSortInArray(originalArray8, 0, originalArray8.length - 1, false, false);
         log.info(LogUtils.getLogMessage("bubbleSortInArray", "Sort to test stability"));
-        log.info(LogUtils.getLogMessage("bubbleSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5)), true));
-        log.info(LogUtils.getLogMessage("bubbleSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6)), true));
-        log.info(LogUtils.getLogMessage("bubbleSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7)), true));
-        log.info(LogUtils.getLogMessage("bubbleSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8)), true));
+        log.info(LogUtils.getLogMessage("bubbleSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5))));
+        log.info(LogUtils.getLogMessage("bubbleSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6))));
+        log.info(LogUtils.getLogMessage("bubbleSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray7)).addParameter("Asc-sorted array", Arrays.asList(sortedArray7))));
+        log.info(LogUtils.getLogMessage("bubbleSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray8)).addParameter("Desc-sorted array", Arrays.asList(sortedArray8))));
         // Sort huge amount of data
         Integer[] originalHugeArray1 = getHugeAmountOfIntegers();
         long timeMillisBeforeSort = SystemUtils.currentTimeMillis();
         Integer[] sortedHugeArray1 = sortService.bubbleSortInArray(originalHugeArray1, 0, originalHugeArray1.length - 1, true, true);
         long timeMillisAfterSort = SystemUtils.currentTimeMillis();
         log.info(LogUtils.getLogMessage("bubbleSortInArray", "Sort huge amount of data"));
-        log.info(LogUtils.getLogMessage("bubbleSortInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length), true));
+        log.info(LogUtils.getLogMessage("bubbleSortInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length)));
         // Return result
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())

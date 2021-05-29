@@ -79,7 +79,7 @@ public class RestTemplateUtils {
             urlBuffer.append(restfulAPI);
             String url = urlBuffer.toString();
             // Return URL
-            log.info(LogUtils.getLogMessage("getURL", new ParametersToLog().addParameter("URL", url), true));
+            log.info(LogUtils.getLogMessage("getURL", new ParametersToLog().addParameter("URL", url)));
             return url;
         } else {
             throw new BaseException("Restful API to request is not found");

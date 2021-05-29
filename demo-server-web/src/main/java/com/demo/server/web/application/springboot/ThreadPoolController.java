@@ -52,7 +52,7 @@ public class ThreadPoolController {
                 .addParameter("threadPool3", threadPool3)
                 .addParameter("threadPool4", threadPool4)
                 .addParameter("threadPool5", threadPool5)
-                .addParameter("threadPool6", threadPool6), true));
+                .addParameter("threadPool6", threadPool6)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())

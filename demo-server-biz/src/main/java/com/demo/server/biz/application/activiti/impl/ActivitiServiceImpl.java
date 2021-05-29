@@ -150,7 +150,7 @@ public class ActivitiServiceImpl implements ActivitiService {
                 .latest()
                 .singleResult();
         log.info(LogUtils.getLogMessage("getLatestDeployment", new ParametersToLog()
-                .addParameter("latest deployment from database", latestDeployment), true));
+                .addParameter("latest deployment from database", latestDeployment)));
         return latestDeployment;
     }
 
@@ -217,7 +217,7 @@ public class ActivitiServiceImpl implements ActivitiService {
         workflowInstanceVariables.put("workflowInstanceVar4", new Random().nextInt());
         ProcessInstance processInstance = runtimeService.startProcessInstanceById(processDefinition.getId(), workflowInstanceBusinessKey, workflowInstanceVariables);
         log.info(LogUtils.getLogMessage("startLatestDeployedWorkflowWithDefinitionKey", new ParametersToLog()
-                .addParameter("current running workflow", processInstance), true));
+                .addParameter("current running workflow", processInstance)));
         return processInstance;
     }
 
@@ -241,7 +241,7 @@ public class ActivitiServiceImpl implements ActivitiService {
         }
         ProcessInstance processInstance = allRunningWorkflows.get(0);
         log.info(LogUtils.getLogMessage("getOneRunningWorkflowWithDefinitionKey", new ParametersToLog()
-                .addParameter("the running workflow from all running workflows with definition key", processInstance), true));
+                .addParameter("the running workflow from all running workflows with definition key", processInstance)));
         return processInstance;
     }
 
@@ -338,7 +338,7 @@ public class ActivitiServiceImpl implements ActivitiService {
         }
         Task task = allTasks.get(0);
         log.info(LogUtils.getLogMessage("getOneActiveTaskFromCurrentRunningWorkflowWithDefinitionKey", new ParametersToLog()
-                .addParameter("the active task from current running workflow with definition key", task), true));
+                .addParameter("the active task from current running workflow with definition key", task)));
         return task;
     }
 
@@ -391,11 +391,11 @@ public class ActivitiServiceImpl implements ActivitiService {
         List<Task> taskList = taskService.createTaskQuery().taskCandidateGroup("vinsyuan7788").list();
         log.info(LogUtils.getLogMessage("forExploration", new ParametersToLog()
                 .addParameter("taskList.size()", taskList.size())
-                .addParameter("taskList", taskList), true));
+                .addParameter("taskList", taskList)));
         // Query historic task
         List<HistoricTaskInstance> historicTaskList = historyService.createHistoricTaskInstanceQuery().taskAssignee("vinsyuan7788").list();
         log.info(LogUtils.getLogMessage("forExploration", new ParametersToLog()
                 .addParameter("historicTaskList.size()", historicTaskList.size())
-                .addParameter("historicTaskList", historicTaskList), true));
+                .addParameter("historicTaskList", historicTaskList)));
     }
 }

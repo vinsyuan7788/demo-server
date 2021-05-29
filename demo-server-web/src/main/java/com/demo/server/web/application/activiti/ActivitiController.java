@@ -41,7 +41,7 @@ public class ActivitiController {
     public CommonResponse deployWorkflows() {
         Deployment deployment = activitiService.deployWorkflows();
         log.info(LogUtils.getLogMessage("deployWorkflows", new ParametersToLog()
-                .addParameter("deployment", deployment), true));
+                .addParameter("deployment", deployment)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())
@@ -56,7 +56,7 @@ public class ActivitiController {
         List<Deployment> allDeployments = activitiService.getAllDeployments();
         log.info(LogUtils.getLogMessage("Get all deployments", new ParametersToLog()
                 .addParameter("size", allDeployments.size())
-                .addParameter("content", allDeployments), true));
+                .addParameter("content", allDeployments)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())
@@ -70,7 +70,7 @@ public class ActivitiController {
     public CommonResponse getLatestDeployment() {
         Deployment latestDeployment = activitiService.getLatestDeployment();
         log.info(LogUtils.getLogMessage("getLatestDeployment", new ParametersToLog()
-                .addParameter("content", latestDeployment), true));
+                .addParameter("content", latestDeployment)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())
@@ -85,7 +85,7 @@ public class ActivitiController {
         List<ProcessDefinition> allProcessDefinitions = activitiService.getAllDeployedWorkflows();
         log.info(LogUtils.getLogMessage("getAllDeployedWorkflows", new ParametersToLog()
                 .addParameter("size", allProcessDefinitions.size())
-                .addParameter("content", allProcessDefinitions), true));
+                .addParameter("content", allProcessDefinitions)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())
@@ -100,7 +100,7 @@ public class ActivitiController {
         List<ProcessDefinition> latestDeployedWorkflows = activitiService.getLatestDeployedWorkflows();
         log.info(LogUtils.getLogMessage("getLatestDeployedWorkflows", new ParametersToLog()
                 .addParameter("size", latestDeployedWorkflows.size())
-                .addParameter("content", latestDeployedWorkflows), true));
+                .addParameter("content", latestDeployedWorkflows)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())
@@ -115,7 +115,7 @@ public class ActivitiController {
         List<ProcessDefinition> allProcessDefinitions = activitiService.getAllDeployedWorkflowsWithDefinitionKey();
         log.info(LogUtils.getLogMessage("getAllDeployedWorkflowsWithDefinitionKey", new ParametersToLog()
                 .addParameter("size", allProcessDefinitions.size())
-                .addParameter("content", allProcessDefinitions), true));
+                .addParameter("content", allProcessDefinitions)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())
@@ -130,7 +130,7 @@ public class ActivitiController {
         List<ProcessDefinition> latestDeployedWorkflows = activitiService.getLatestDeployedWorkflowsWithDefinitionKey();
         log.info(LogUtils.getLogMessage("getLatestDeployedWorkflowsWithDefinitionKey", new ParametersToLog()
                 .addParameter("size", latestDeployedWorkflows.size())
-                .addParameter("content", latestDeployedWorkflows), true));
+                .addParameter("content", latestDeployedWorkflows)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())
@@ -144,7 +144,7 @@ public class ActivitiController {
     public CommonResponse startLatestDeployedWorkflowWithDefinitionKey() {
         ProcessInstance runningWorkflow = activitiService.startLatestDeployedWorkflowWithDefinitionKey();
         log.info(LogUtils.getLogMessage("startLatestDeployedWorkflowWithDefinitionKey", new ParametersToLog()
-                .addParameter("running workflow", runningWorkflow), true));
+                .addParameter("running workflow", runningWorkflow)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())
@@ -159,7 +159,7 @@ public class ActivitiController {
         List<ProcessInstance> allRunningWorkflows = activitiService.getAllRunningWorkflowsWithDefinitionKey();
         log.info(LogUtils.getLogMessage("getAllRunningWorkflowsWithDefinitionKey", new ParametersToLog()
                 .addParameter("size", allRunningWorkflows.size())
-                .addParameter("content", allRunningWorkflows), true));
+                .addParameter("content", allRunningWorkflows)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())
@@ -173,7 +173,7 @@ public class ActivitiController {
     public CommonResponse getOneRunningWorkflowWithDefinitionKey() {
         ProcessInstance runningWorkflow = activitiService.getOneRunningWorkflowWithDefinitionKey();
         log.info(LogUtils.getLogMessage("getOneRunningWorkflowWithDefinitionKey", new ParametersToLog()
-                .addParameter("running workflow", runningWorkflow), true));
+                .addParameter("running workflow", runningWorkflow)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())
@@ -187,7 +187,7 @@ public class ActivitiController {
     public CommonResponse getCurrentRunningWorkflow() {
         ProcessInstance runningWorkflow = activitiService.getCurrentRunningWorkflowWithDefinitionKey();
         log.info(LogUtils.getLogMessage("getCurrentRunningWorkflowWithDefinitionKey", new ParametersToLog()
-                .addParameter("running workflow", runningWorkflow), true));
+                .addParameter("running workflow", runningWorkflow)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())
@@ -214,7 +214,7 @@ public class ActivitiController {
     public CommonResponse getAllTasksFromCurrentRunningWorkflowWithDefinitionKey() {
         List<Task> allTasks = activitiService.getAllTasksFromCurrentRunningWorkflowWithDefinitionKey();
         log.info(LogUtils.getLogMessage("getAllTasksFromCurrentRunningWorkflowWithDefinitionKey", new ParametersToLog()
-                .addParameter("all tasks", allTasks), true));
+                .addParameter("all tasks", allTasks)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())
@@ -228,7 +228,7 @@ public class ActivitiController {
     public CommonResponse getAllActiveTasksFromCurrentRunningWorkflowWithDefinitionKey() {
         List<Task> allTasks = activitiService.getAllActiveTasksFromCurrentRunningWorkflowWithDefinitionKey();
         log.info(LogUtils.getLogMessage("getAllActiveTasksFromCurrentRunningWorkflowWithDefinitionKey", new ParametersToLog()
-                .addParameter("all active tasks", allTasks), true));
+                .addParameter("all active tasks", allTasks)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())
@@ -242,7 +242,7 @@ public class ActivitiController {
     public CommonResponse getAllSuspendedTasksFromCurrentRunningWorkflowWithDefinitionKey() {
         List<Task> allTasks = activitiService.getAllSuspendedTasksFromCurrentRunningWorkflowWithDefinitionKey();
         log.info(LogUtils.getLogMessage("getAllSuspendedTasksFromCurrentRunningWorkflowWithDefinitionKey", new ParametersToLog()
-                .addParameter("all suspended tasks", allTasks), true));
+                .addParameter("all suspended tasks", allTasks)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())
@@ -256,7 +256,7 @@ public class ActivitiController {
     public CommonResponse getAllRootTasksFromCurrentRunningWorkflowWithDefinitionKey() {
         List<Task> allTasks = activitiService.getAllRootTasksFromCurrentRunningWorkflowWithDefinitionKey();
         log.info(LogUtils.getLogMessage("getAllRootTasksFromCurrentRunningWorkflowWithDefinitionKey", new ParametersToLog()
-                .addParameter("all root tasks", allTasks), true));
+                .addParameter("all root tasks", allTasks)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())
@@ -270,7 +270,7 @@ public class ActivitiController {
     public CommonResponse getOneActiveTaskFromCurrentRunningWorkflowWithDefinitionKey() {
         Task task = activitiService.getOneActiveTaskFromCurrentRunningWorkflowWithDefinitionKey();
         log.info(LogUtils.getLogMessage("getOneActiveTaskFromCurrentRunningWorkflowWithDefinitionKey", new ParametersToLog()
-                .addParameter("one active task", task), true));
+                .addParameter("one active task", task)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())
@@ -284,7 +284,7 @@ public class ActivitiController {
 //    public CommonResponse getOneRootTaskFromCurrentRunningWorkflowWithDefinitionKey() {
 //        Task task = activitiService.getOneRootTaskFromCurrentRunningWorkflowWithDefinitionKey();
 //        log.info(LogUtils.getLogMessage("getOneRootTaskFromCurrentRunningWorkflowWithDefinitionKey", new ParametersToLog()
-//                .addParameter("one root task", task), true));
+//                .addParameter("one root task", task)));
 //        return CommonResponse.builder()
 //                .code(ResponseEnum.SUCCESS.getCode())
 //                .message(ResponseEnum.SUCCESS.getMessage())
@@ -298,7 +298,7 @@ public class ActivitiController {
     public CommonResponse getCurrentTaskFromCurrentRunningWorkflowWithDefinitionKey() {
         Task task = activitiService.getCurrentTaskFromCurrentRunningWorkflowWithDefinitionKey();
         log.info(LogUtils.getLogMessage("getCurrentTaskFromCurrentRunningWorkflowWithDefinitionKey", new ParametersToLog()
-                .addParameter("current task", task), true));
+                .addParameter("current task", task)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())

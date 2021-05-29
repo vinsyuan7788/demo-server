@@ -50,20 +50,20 @@ public class RestTemplateController {
         // Send GET request and return response entity
         ResponseEntity<CommonResponse> responseEntity = restTemplate.getForEntity(RestTemplateUtils.getURL(RestTemplateUtils.HTTP_PROTOCOL, "/spring/boot/request/get", environment), CommonResponse.class);
         log.info(LogUtils.getLogMessage("sendGetRequest", new ParametersToLog()
-                .addParameter("response entity", responseEntity), true));
+                .addParameter("response entity", responseEntity)));
         responseEntity = restTemplate.getForEntity(RestTemplateUtils.getURL(RestTemplateUtils.HTTP_PROTOCOL, "/spring/boot/request/getWithParametersInRestfulAndReceivedByField/1/vince/98.27", environment), CommonResponse.class);
         log.info(LogUtils.getLogMessage("sendGetRequest", new ParametersToLog()
-                .addParameter("response entity", responseEntity), true));
+                .addParameter("response entity", responseEntity)));
         // Send GET request and return response content
         CommonResponse responseContent = restTemplate.getForObject(RestTemplateUtils.getURL(RestTemplateUtils.HTTP_PROTOCOL, "/spring/boot/request/getWithParametersInQueryStringAndReceivedByField" + getQueryString(), environment), CommonResponse.class);
         log.info(LogUtils.getLogMessage("sendGetRequest", new ParametersToLog()
-                .addParameter("response content", responseContent), true));
+                .addParameter("response content", responseContent)));
         responseContent = restTemplate.getForObject(RestTemplateUtils.getURL(RestTemplateUtils.HTTP_PROTOCOL, "/spring/boot/request/getWithParametersInQueryStringAndReceivedByBean" + getQueryString(), environment), CommonResponse.class);
         log.info(LogUtils.getLogMessage("sendGetRequest", new ParametersToLog()
-                .addParameter("response content", responseContent), true));
+                .addParameter("response content", responseContent)));
         responseContent = restTemplate.getForObject(RestTemplateUtils.getURL(RestTemplateUtils.HTTP_PROTOCOL, "/spring/boot/request/getWithParametersInQueryStringAndReceivedByMap" + getQueryString(), environment), CommonResponse.class);
         log.info(LogUtils.getLogMessage("sendGetRequest", new ParametersToLog()
-                .addParameter("response content", responseContent), true));
+                .addParameter("response content", responseContent)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())
@@ -80,23 +80,23 @@ public class RestTemplateController {
         // Send POST request and return response entity
         ResponseEntity<CommonResponse> responseEntity = restTemplate.postForEntity(RestTemplateUtils.getURL(RestTemplateUtils.HTTP_PROTOCOL, "/request/post", environment), getJSONRequest(), CommonResponse.class);
         log.info(LogUtils.getLogMessage("sendPostRequest", new ParametersToLog()
-                .addParameter("response entity", responseEntity), true));
+                .addParameter("response entity", responseEntity)));
         responseEntity = restTemplate.postForEntity(RestTemplateUtils.getURL(RestTemplateUtils.HTTP_PROTOCOL, "/request/postWithParametersInJSONAndReceivedByBean", environment), getJSONRequest(), CommonResponse.class);
         log.info(LogUtils.getLogMessage("sendPostRequest", new ParametersToLog()
-                .addParameter("response entity", responseEntity), true));
+                .addParameter("response entity", responseEntity)));
         responseEntity = restTemplate.postForEntity(RestTemplateUtils.getURL(RestTemplateUtils.HTTP_PROTOCOL, "/request/postWithParametersInJSONAndReceivedByMap", environment), getJSONRequest(), CommonResponse.class);
         log.info(LogUtils.getLogMessage("sendPostRequest", new ParametersToLog()
-                .addParameter("response entity", responseEntity), true));
+                .addParameter("response entity", responseEntity)));
         // Send POST request and return response content
         CommonResponse responseContent = restTemplate.postForObject(RestTemplateUtils.getURL(RestTemplateUtils.HTTP_PROTOCOL, "/request/postWithParametersInFormAndReceivedByField", environment), getFormRequest(), CommonResponse.class);
         log.info(LogUtils.getLogMessage("sendPostRequest", new ParametersToLog()
-                .addParameter("response content", responseContent), true));
+                .addParameter("response content", responseContent)));
         responseContent = restTemplate.postForObject(RestTemplateUtils.getURL(RestTemplateUtils.HTTP_PROTOCOL, "/request/postWithParametersInFormAndReceivedByBean", environment), getFormRequest(), CommonResponse.class);
         log.info(LogUtils.getLogMessage("sendPostRequest", new ParametersToLog()
-                .addParameter("response content", responseContent), true));
+                .addParameter("response content", responseContent)));
         responseContent = restTemplate.postForObject(RestTemplateUtils.getURL(RestTemplateUtils.HTTP_PROTOCOL, "/request/postWithParametersInFormAndReceivedByMap", environment), getFormRequest(), CommonResponse.class);
         log.info(LogUtils.getLogMessage("sendPostRequest", new ParametersToLog()
-                .addParameter("response content", responseContent), true));
+                .addParameter("response content", responseContent)));
         return CommonResponse.builder()
                 .code(ResponseEnum.SUCCESS.getCode())
                 .message(ResponseEnum.SUCCESS.getMessage())
