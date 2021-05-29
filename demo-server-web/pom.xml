@@ -176,7 +176,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.demo.spring.boot.web.DemoSpringBootApplication</mainClass>
+                    <mainClass>com.demo.server.web.DemoServerApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
