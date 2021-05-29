@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>demo-server</artifactId>
+        <groupId>com.demo</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>demo-server-biz</artifactId>
+
+    <dependencies>
+        <!-- Page Helper -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+        </dependency>
+
+        <!-- Activiti -->
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-spring-boot-starter-basic</artifactId>
+        </dependency>
+
+        <!-- Easy Excel -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+        </dependency>
+
+        <!-- Apache Common -->
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+
+        <!-- demo-server-dal -->
+        <dependency>
+            <groupId>com.demo</groupId>
+            <artifactId>demo-server-dal</artifactId>
+        </dependency>
+        <!-- demo-server-common -->
+        <dependency>
+            <groupId>com.demo</groupId>
+            <artifactId>demo-server-common</artifactId>
+        </dependency>
+        <!-- demo-server-core -->
+        <dependency>
+            <groupId>com.demo</groupId>
+            <artifactId>demo-server-core</artifactId>
+        </dependency>
+        <!-- demo-base-cache -->
+        <dependency>
+            <groupId>com.demo</groupId>
+            <artifactId>demo-base-cache</artifactId>
+        </dependency>
+    </dependencies>
+</project>
