@@ -29,6 +29,7 @@
         <mysql.version>8.0.23</mysql.version>                                    <!-- <mysql.version>5.1.25</mysql.version> -->
         <oracle.version>19.8.0.0</oracle.version>                                <!-- <oracle.version>11.2.0.3</oracle.version> -->
         <druid.version>1.1.10</druid.version>                                    <!-- <druid.version>1.1.21</druid.version> -->
+        <shardingsphere.spring-boot.version>4.1.1</shardingsphere.spring-boot.version>
         <xxl-job.version>2.0.1</xxl-job.version>
         <pagehelper.version>5.1.8</pagehelper.version>
         <pagehelper-spring-boot.version>1.2.0</pagehelper-spring-boot.version>
@@ -182,6 +183,18 @@
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.version}</version>
             </dependency>
+
+            <!-- Sharding Sphere -->
+            <!--<dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+                <version>${shardingsphere.spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-spring-namespace</artifactId>
+                <version>${shardingsphere.spring-boot.version}</version>
+            </dependency>-->
 
             <!-- Page Helper -->
             <dependency>
