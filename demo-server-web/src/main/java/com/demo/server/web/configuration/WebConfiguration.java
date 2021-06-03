@@ -1,4 +1,4 @@
-package com.demo.server.web.config;
+package com.demo.server.web.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
@@ -19,7 +19,7 @@ import java.util.List;
  */
 @EnableWebMvc
 @Configuration
-public class WebConfig extends WebMvcConfigurerAdapter {
+public class WebConfiguration extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

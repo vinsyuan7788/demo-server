@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableScheduling
 @EnableTransactionManagement
 @MapperScan({ "com.demo.server.dal.mapper" })
-@SpringBootApplication(scanBasePackages = { "com.demo.*" })
+@SpringBootApplication(scanBasePackages = { "com.demo.*" }, exclude = { org.apache.shardingsphere.shardingjdbc.spring.boot.SpringBootConfiguration.class })
 public class DemoServerApplication {
 
     public static void main(String[] args) {

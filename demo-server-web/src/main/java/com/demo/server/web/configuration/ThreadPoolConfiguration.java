@@ -1,4 +1,4 @@
-package com.demo.server.web.config;
+package com.demo.server.web.configuration;
 
 import com.demo.base.common.utils.LogUtils;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
@@ -14,7 +14,7 @@ import java.util.concurrent.*;
  */
 @Slf4j
 @Configuration
-public class ThreadPoolConfig {
+public class ThreadPoolConfiguration {
 
     @Bean("ioIntensiveThreadPool")
     public ExecutorService getIoIntensiveThreadPool() {

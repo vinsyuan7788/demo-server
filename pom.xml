@@ -23,13 +23,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- Versions for Open-Source Dependencies -->
-        <spring-boot.version>1.5.7.RELEASE</spring-boot.version>               <!-- <spring-boot.version>2.3.7.RELEASE</spring-boot.version> -->
-        <spring-cloud.version>Edgware.SR1</spring-cloud.version>
-        <mybatis-spring-boot.version>1.3.0</mybatis-spring-boot.version>    <!-- <spring-boot.version>1.3.2</spring-boot.version> -->
-        <mysql.version>8.0.23</mysql.version>                                    <!-- <mysql.version>5.1.25</mysql.version> -->
-        <oracle.version>19.8.0.0</oracle.version>                                <!-- <oracle.version>11.2.0.3</oracle.version> -->
-        <druid.version>1.1.10</druid.version>                                    <!-- <druid.version>1.1.21</druid.version> -->
-        <shardingsphere.spring-boot.version>4.1.1</shardingsphere.spring-boot.version>
+        <spring-boot.version>1.5.7.RELEASE</spring-boot.version>                            <!-- <spring-boot.version>1.5.7.RELEASE</spring-boot.version> -->
+        <spring-cloud.version>Edgware.SR1</spring-cloud.version>                            <!-- <spring-cloud.version>Edgware.SR1</spring-cloud.version> -->
+        <mybatis-spring-boot.version>1.3.0</mybatis-spring-boot.version>                    <!-- <spring-boot.version>1.3.0</spring-boot.version> -->
+        <mysql.version>8.0.23</mysql.version>                                               <!-- <mysql.version>5.1.25</mysql.version> -->
+        <oracle.version>19.8.0.0</oracle.version>                                           <!-- <oracle.version>11.2.0.3</oracle.version> -->
+        <druid.version>1.1.10</druid.version>                                               <!-- <druid.version>1.1.21</druid.version> -->
+        <shardingsphere-spring-boot.version>4.1.1</shardingsphere-spring-boot.version>
         <xxl-job.version>2.0.1</xxl-job.version>
         <pagehelper.version>5.1.8</pagehelper.version>
         <pagehelper-spring-boot.version>1.2.0</pagehelper-spring-boot.version>
@@ -97,6 +97,21 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-jdbc</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-mail</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-actuator</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
@@ -105,6 +120,11 @@
                 <artifactId>spring-boot-starter-test</artifactId>
                 <version>${spring-boot.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-autoconfigure</artifactId>
+                <version>${spring-boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -150,11 +170,6 @@
 
             <!-- Data Source -->
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-jdbc</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
@@ -185,16 +200,16 @@
             </dependency>
 
             <!-- Sharding Sphere -->
-            <!--<dependency>
+            <dependency>
                 <groupId>org.apache.shardingsphere</groupId>
                 <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
-                <version>${shardingsphere.spring-boot.version}</version>
+                <version>${shardingsphere-spring-boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.shardingsphere</groupId>
                 <artifactId>sharding-jdbc-spring-namespace</artifactId>
-                <version>${shardingsphere.spring-boot.version}</version>
-            </dependency>-->
+                <version>${shardingsphere-spring-boot.version}</version>
+            </dependency>
 
             <!-- Page Helper -->
             <dependency>
@@ -352,6 +367,10 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <!-- To introduce the managed dependencies in actual -->
+    <!--<dependencies>
+    </dependencies>-->
 
     <profiles>
         <profile>
