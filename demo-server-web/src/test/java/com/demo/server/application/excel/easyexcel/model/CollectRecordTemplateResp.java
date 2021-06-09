@@ -1,4 +1,4 @@
-package com.demo.server.application.easyexcel.model;
+package com.demo.server.application.excel.easyexcel.model;
 
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.metadata.BaseRowModel;

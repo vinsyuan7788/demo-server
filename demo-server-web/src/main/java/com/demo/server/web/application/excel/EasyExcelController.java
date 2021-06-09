@@ -1,4 +1,4 @@
-package com.demo.server.web.application.easyexcel;
+package com.demo.server.web.application.excel;
 
 import com.demo.base.common.response.bean.CommonResponse;
 import com.demo.base.common.response.enums.ResponseEnum;
@@ -19,10 +19,10 @@ import java.util.List;
  * @author Vince Yuan
  * @date 05/14/2021
  */
-@Api(value = "应用-EasyExcel", tags = "应用-EasyExcel")
+@Api(value = "应用-Excel-EasyExcel", tags = "应用-Excel-EasyExcel")
 @Slf4j
 @RestController
-@RequestMapping("/easy/excel")
+@RequestMapping("/excel/easy/excel")
 public class EasyExcelController {
 
     @Autowired

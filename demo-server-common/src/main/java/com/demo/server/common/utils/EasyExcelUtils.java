@@ -21,18 +21,18 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *  This class is used for Excel manipulation
+ *  This class is used for Excel manipulation based on EasyExcel
  *
  * @author Vince Yuan
  * @date 04/23/2021
  */
 @Slf4j
-public class ExcelUtils {
+public class EasyExcelUtils {
 
     /**
      *  Privatize the constructor
      */
-    private ExcelUtils() {}
+    private EasyExcelUtils() {}
 
     /**
      *  Export data to an output stream (with multiple sheets)

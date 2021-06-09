@@ -1,11 +1,11 @@
-package com.demo.server.application.easyexcel;
+package com.demo.server.application.excel.easyexcel;
 
 import com.alibaba.excel.EasyExcelFactory;
 import com.alibaba.excel.metadata.BaseRowModel;
 import com.alibaba.excel.metadata.Sheet;
 import com.alibaba.fastjson.JSONObject;
-import com.demo.server.application.easyexcel.model.CollectRecordTemplateResp;
-import com.demo.server.common.utils.ExcelUtils;
+import com.demo.server.application.excel.easyexcel.model.CollectRecordTemplateResp;
+import com.demo.server.common.utils.EasyExcelUtils;
 import com.demo.server.web.DemoServerApplication;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
@@ -36,15 +36,15 @@ public class TestEasyExcel {
 
     @Test
     public void test() throws Exception {
-//        testEasyExcel();
-        testEasyExcelRead();
+        testEasyExcel();
+//        testEasyExcelRead();
     }
 
     private void testEasyExcelRead() {
         int totalsRead = 0;
         int startLine = 1;
         while (totalsRead < 50000) {
-            List<Object> objects = ExcelUtils.readFromDisk(filePath3, 1, startLine, startLine + 5000, CollectRecordTemplateResp.class);
+            List<Object> objects = EasyExcelUtils.readFromDisk(filePath3, 1, startLine, startLine + 5000, CollectRecordTemplateResp.class);
             log.info("=== XXX | 读取数据成功 | 行数: {} ===", objects.size());
             totalsRead += 5000;
         }
@@ -56,7 +56,7 @@ public class TestEasyExcel {
         log.info("=== XXX | 读取数据成功 | 行数: {} | 数据: {} ===", CollectionUtils.isNotEmpty(dataRead) ? dataRead.size() : 0, JSONObject.toJSONString(dataRead));
         List<CollectRecordTemplateResp> dataToWrite = getDataToWrite(dataRead);
         log.info("=== XXX | 需要写入的数据 | 行数: {} ===", dataToWrite.size());
-        ExcelUtils.writeToDisk(filePath2, getSheetNameAndData(dataToWrite), CollectRecordTemplateResp.class);
+        EasyExcelUtils.writeToDisk(filePath2, getSheetNameAndData(dataToWrite), CollectRecordTemplateResp.class);
         log.info("=== XXX | 写入数据成功 | 行数: {} ===", dataToWrite.size());
     }
 
