@@ -22,15 +22,11 @@ public class CollectRecordTemplateResp extends BaseRowModel {
     @ApiModelProperty("委外机构名称：必填")
     private String outCompanyName;
 
-//    @ExcelProperty(value = "案件编号", index = 1)
-//    @ApiModelProperty("案件编号：必填")
-//    private String billCode;
     @ExcelProperty(value = "借据编号", index = 1)
     @ApiModelProperty("借据编号：必填")
     private String iouCode;
 
     @ExcelProperty(value = "催记时间", index = 2)
-//    @ExcelProperty(value = "催记时间", index = 2, format = "yyyy/MM/dd HH:mm:ss")
     @ApiModelProperty("催记时间：必填；必须得是年月日时分秒")
     private String collectionRecordDate;
 
@@ -71,7 +67,6 @@ public class CollectRecordTemplateResp extends BaseRowModel {
     private String promiseRepayMoney;
 
     @ExcelProperty(value = "承诺还款日期", index = 12)
-//    @ExcelProperty(value = "承诺还款日期", index = 12, format = "yyyy/MM/dd HH:mm:ss")
     @ApiModelProperty("承诺还款日期：选填")
     private String promiseRepayDate;
 

@@ -2,6 +2,7 @@ package com.demo.server.biz.theory.structure.data.array.impl;
 
 import com.demo.server.biz.theory.structure.data.array.ArrayService;
 import com.demo.server.biz.theory.structure.data.array.ArraySortService;
+import com.demo.server.biz.theory.structure.data.array.ArraySwapService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,14 +16,22 @@ import org.springframework.stereotype.Service;
 public class ArrayServiceImpl implements ArrayService {
 
     @Autowired
+    private ArraySwapService arraySwapService;
+    @Autowired
     private ArraySortService arraySortService;
 
     @Override
     public <T> T[] swap(T[] array, int i, int j) {
-        T temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-        return array;
+        T t = array[i];
+        if (t instanceof Integer) {
+            Integer[] integerArray = new Integer[array.length];
+            for (int k = 0; k < integerArray.length; k++) {
+                integerArray[k] = (Integer) array[k];
+            }
+            return (T[]) arraySwapService.swapByBitOperation(integerArray, i, j);
+        } else {
+            return arraySwapService.swapByTemporaryVariable(array, i, j);
+        }
     }
 
     @Override
