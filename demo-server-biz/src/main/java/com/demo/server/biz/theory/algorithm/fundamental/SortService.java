@@ -1,6 +1,6 @@
 package com.demo.server.biz.theory.algorithm.fundamental;
 
-import com.demo.server.biz.theory.structure.data.array.utils.enums.SortObjectEnum;
+import com.demo.server.biz.theory.structure.data.array.utils.enums.SortedElementTypeEnum;
 
 /**
  * @author Vince Yuan
@@ -28,11 +28,11 @@ public interface SortService {
      * @param endIndex the end index of the array
      * @param isAsc if the elements of the array are sorted in ascending order
      * @param useLeastSignificantDigit if using least significant digit to implement radix sort
-     * @param sortObjectEnum what type of object to be sorted
+     * @param sortedElementTypeEnum what type of object to be sorted
      * @param <T> the generic type that extends Comparable interface
      * @return the sorted array
      */
-    <T extends Comparable<T>> T[] radixSortInArray(T[] array, int startIndex, int endIndex, boolean isAsc, boolean useLeastSignificantDigit, SortObjectEnum sortObjectEnum);
+    <T extends Comparable<T>> T[] radixSortInArray(T[] array, int startIndex, int endIndex, boolean isAsc, boolean useLeastSignificantDigit, SortedElementTypeEnum sortedElementTypeEnum);
 
     /**
      *  Perform a heap sort in array

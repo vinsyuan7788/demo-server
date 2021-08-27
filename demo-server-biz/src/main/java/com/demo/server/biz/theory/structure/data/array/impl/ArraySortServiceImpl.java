@@ -3,7 +3,7 @@ package com.demo.server.biz.theory.structure.data.array.impl;
 import com.demo.base.common.exception.bean.BusinessException;
 import com.demo.server.biz.theory.structure.data.array.ArrayService;
 import com.demo.server.biz.theory.structure.data.array.ArraySortService;
-import com.demo.server.biz.theory.structure.data.array.utils.enums.SortObjectEnum;
+import com.demo.server.biz.theory.structure.data.array.utils.enums.SortedElementTypeEnum;
 import lombok.Builder;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +14,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 /**
  * @author Vince Yuan
@@ -75,7 +76,7 @@ public class ArraySortServiceImpl implements ArraySortService {
      * @return
      */
     @Override
-    public <T extends Comparable<T>> T[] radixSort(T[] array, int startIndex, int endIndex, boolean isAsc, boolean useLeastSignificantDigit, SortObjectEnum sortObjectEnum) {
+    public <T extends Comparable<T>> T[] radixSort(T[] array, int startIndex, int endIndex, boolean isAsc, boolean useLeastSignificantDigit, SortedElementTypeEnum sortObjectEnum) {
         return useLeastSignificantDigit ? sortByUsingLeastSignificantDigit(array, startIndex, endIndex, isAsc, sortObjectEnum) : sortByUsingMostSignificantDigit(array, startIndex, endIndex, isAsc, sortObjectEnum);
     }
 
@@ -335,16 +336,12 @@ public class ArraySortServiceImpl implements ArraySortService {
      * @param startIndex the start index of the array
      * @param endIndex the end index of the array
      * @param isAsc if the elements of the array are sorted in ascending order
-     * @param sortObjectEnum what type of object to be sorted
+     * @param sortedElementTypeEnum what type of object to be sorted
      * @param <T> the generic type that extends Comparable interface
      * @return the sorted array
      */
-    private <T extends Comparable<T>> T[] sortByUsingLeastSignificantDigit(T[] array, int startIndex, int endIndex, boolean isAsc, SortObjectEnum sortObjectEnum) {
-        int iteration = getIterationForBucketization(array, startIndex, endIndex, sortObjectEnum);
-        for (int i = 0; i < iteration; i++) {
-
-        }
-        return array;
+    private <T extends Comparable<T>> T[] sortByUsingLeastSignificantDigit(T[] array, int startIndex, int endIndex, boolean isAsc, SortedElementTypeEnum sortedElementTypeEnum) {
+        return sortByIterativeBucketizationStartingFromLeastSignificantDigit(array, startIndex, endIndex, isAsc, sortedElementTypeEnum, getIterationForBucketization(array, startIndex, endIndex, sortedElementTypeEnum));
     }
 
     /**
@@ -353,22 +350,55 @@ public class ArraySortServiceImpl implements ArraySortService {
      * @param startIndex the start index of the array
      * @param endIndex the end index of the array
      * @param isAsc if the elements of the array are sorted in ascending order
-     * @param sortObjectEnum what type of object to be sorted
+     * @param sortedElementTypeEnum what type of object to be sorted
      * @param <T> the generic type that extends Comparable interface
      * @return the sorted array
      */
-    private <T extends Comparable<T>> T[] sortByUsingMostSignificantDigit(T[] array, int startIndex, int endIndex, boolean isAsc, SortObjectEnum sortObjectEnum) {
+    private <T extends Comparable<T>> T[] sortByUsingMostSignificantDigit(T[] array, int startIndex, int endIndex, boolean isAsc, SortedElementTypeEnum sortedElementTypeEnum) {
         return array;
     }
 
-    private <T extends Comparable<T>> int getIterationForBucketization(T[] array, int startIndex, int endIndex, SortObjectEnum sortObjectEnum) {
-        T maxElement = getMaxElement(array, startIndex, endIndex, sortObjectEnum);
-        int maxDigitNumber = getMaxDigitNumber(maxElement, sortObjectEnum);
+    /**
+     *
+     * @param array
+     * @param startIndex
+     * @param endIndex
+     * @param isAsc
+     * @param sortedElementTypeEnum
+     * @param iterationForBucketization
+     * @param <T>
+     * @return
+     */
+    private <T extends Comparable<T>> T[] sortByIterativeBucketizationStartingFromLeastSignificantDigit(T[] array, int startIndex, int endIndex, boolean isAsc, SortedElementTypeEnum sortedElementTypeEnum, int iterationForBucketization) {
+        checkEnum(sortedElementTypeEnum);
+        switch (sortedElementTypeEnum) {
+            case NUMBER:
+                for (int i = 0; i < iterationForBucketization; i++) {
+                    BigDecimal divisor = BigDecimal.valueOf(10);
+                    LinkedList[] buckets = new LinkedList[10];
+                    for (int j = startIndex; j <= endIndex; j++) {
+                        BigDecimal element = new BigDecimal(array[j].toString());
+                        // todo here to be continued
+                        // ...
+                    }
+                }
+                return array;
+            case STRING:
+                throw new BusinessException("字符串排序暂未实现");
+            default:
+                throw new BusinessException("未知的排序元素类型");
+        }
+    }
+
+    private <T extends Comparable<T>> int getIterationForBucketization(T[] array, int startIndex, int endIndex, SortedElementTypeEnum sortedElementTypeEnum) {
+        T maxElement = getMaxElement(array, startIndex, endIndex, sortedElementTypeEnum);
+        int maxDigitNumber = getMaxDigitNumber(maxElement, sortedElementTypeEnum);
         return maxDigitNumber;
     }
 
-    private <T extends Comparable<T>> T getMaxElement(T[] array, int startIndex, int endIndex, SortObjectEnum sortObjectEnum) {
-        switch (sortObjectEnum) {
+    private <T extends Comparable<T>> T getMaxElement(T[] array, int startIndex, int endIndex, SortedElementTypeEnum sortedElementTypeEnum) {
+        checkEnum(sortedElementTypeEnum);
+        switch (sortedElementTypeEnum) {
             case NUMBER:
                 T maxElement = array[startIndex];
                 for (int i = startIndex; i <= endIndex; i++) {
@@ -381,12 +411,13 @@ public class ArraySortServiceImpl implements ArraySortService {
             case STRING:
                 throw new BusinessException("字符串排序暂未实现");
             default:
-                throw new BusinessException("未知排序对象");
+                throw new BusinessException("未知的排序元素类型");
         }
     }
 
-    private <T extends Comparable<T>> int getMaxDigitNumber(T maxElement, SortObjectEnum sortObjectEnum) {
-        switch (sortObjectEnum) {
+    private <T extends Comparable<T>> int getMaxDigitNumber(T maxElement, SortedElementTypeEnum sortedElementTypeEnum) {
+        checkEnum(sortedElementTypeEnum);
+        switch (sortedElementTypeEnum) {
             case NUMBER:
                 /**
                  *  It may contain multiple scenario (e.g., the number with different number of redundant zeros, etc.)
@@ -398,6 +429,17 @@ public class ArraySortServiceImpl implements ArraySortService {
                 throw new BusinessException("字符串排序暂未实现");
             default:
                 throw new BusinessException("未知排序对象");
+        }
+    }
+
+    /**
+     *  Check specified enumeration
+     *
+     * @param sortedElementTypeEnum
+     */
+    private void checkEnum(SortedElementTypeEnum sortedElementTypeEnum) {
+        if (sortedElementTypeEnum == null) {
+            throw new BusinessException("请指定排序元素的类型");
         }
     }
 

@@ -1,7 +1,7 @@
 package com.demo.server.theory;
 
 import com.demo.server.biz.theory.algorithm.fundamental.SortService;
-import com.demo.server.biz.theory.structure.data.array.utils.enums.SortObjectEnum;
+import com.demo.server.biz.theory.structure.data.array.utils.enums.SortedElementTypeEnum;
 import com.demo.server.web.DemoServerApplication;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -27,7 +27,7 @@ public class TestAlgorithm {
     @Test
     public void test() {
         Integer[] array = { 13, 2, 35, 4, 57, 6, 79 };
-        Integer[] sortedArray = sortService.radixSortInArray(array, 0, array.length - 1, true, true, SortObjectEnum.NUMBER);
+        Integer[] sortedArray = sortService.radixSortInArray(array, 0, array.length - 1, true, true, SortedElementTypeEnum.NUMBER);
         System.out.println(Arrays.asList(sortedArray));
     }
 }

@@ -2,7 +2,7 @@ package com.demo.server.biz.theory.algorithm.fundamental.impl;
 
 import com.demo.server.biz.theory.algorithm.fundamental.SortService;
 import com.demo.server.biz.theory.structure.data.array.ArraySortService;
-import com.demo.server.biz.theory.structure.data.array.utils.enums.SortObjectEnum;
+import com.demo.server.biz.theory.structure.data.array.utils.enums.SortedElementTypeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,8 +24,8 @@ public class SortServiceImpl implements SortService {
     }
 
     @Override
-    public <T extends Comparable<T>> T[] radixSortInArray(T[] array, int startIndex, int endIndex, boolean isAsc, boolean useLeastSignificantDigit, SortObjectEnum sortObjectEnum) {
-        return arraySortService.radixSort(array, startIndex, endIndex, isAsc, useLeastSignificantDigit, sortObjectEnum);
+    public <T extends Comparable<T>> T[] radixSortInArray(T[] array, int startIndex, int endIndex, boolean isAsc, boolean useLeastSignificantDigit, SortedElementTypeEnum sortedElementTypeEnum) {
+        return arraySortService.radixSort(array, startIndex, endIndex, isAsc, useLeastSignificantDigit, sortedElementTypeEnum);
     }
 
     @Override

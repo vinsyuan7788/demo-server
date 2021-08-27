@@ -5,7 +5,7 @@ import com.demo.base.common.response.enums.ResponseEnum;
 import com.demo.base.common.utils.LogUtils;
 import com.demo.base.common.utils.utils.ParametersToLog;
 import com.demo.server.biz.theory.algorithm.fundamental.SortService;
-import com.demo.server.biz.theory.structure.data.array.utils.enums.SortObjectEnum;
+import com.demo.server.biz.theory.structure.data.array.utils.enums.SortedElementTypeEnum;
 import com.demo.server.biz.theory.structure.data.array.utils.model.Student;
 import com.demo.server.common.constant.CommonConstant;
 import com.demo.server.common.utils.SystemUtils;
@@ -132,10 +132,10 @@ public class SortController {
     @PostMapping("/radixSortInArray")
     public CommonResponse radixSortInArray() {
         // Sort the sample arrays
-        Integer[] sortedArray1 = sortService.radixSortInArray(originalArray1, 0, originalArray1.length - 1, true, true, SortObjectEnum.NUMBER);
-        Long[] sortedArray2 = sortService.radixSortInArray(originalArray2, 0, originalArray2.length - 1, false, false, SortObjectEnum.NUMBER);
-        Double[] sortedArray3 = sortService.radixSortInArray(originalArray3, 0, originalArray3.length - 1, true, false, SortObjectEnum.NUMBER);
-        String[] sortedArray4 = sortService.radixSortInArray(originalArray4, 0, originalArray4.length - 1, false, true, SortObjectEnum.STRING);
+        Integer[] sortedArray1 = sortService.radixSortInArray(originalArray1, 0, originalArray1.length - 1, true, true, SortedElementTypeEnum.NUMBER);
+        Long[] sortedArray2 = sortService.radixSortInArray(originalArray2, 0, originalArray2.length - 1, false, false, SortedElementTypeEnum.NUMBER);
+        Double[] sortedArray3 = sortService.radixSortInArray(originalArray3, 0, originalArray3.length - 1, true, false, SortedElementTypeEnum.NUMBER);
+        String[] sortedArray4 = sortService.radixSortInArray(originalArray4, 0, originalArray4.length - 1, false, true, SortedElementTypeEnum.STRING);
         log.info(LogUtils.getLogMessage("radixSortInArray", "Sort the sample arrays"));
         log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray1)).addParameter("Asc-sorted array", Arrays.asList(sortedArray1))));
         log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray2)).addParameter("Desc-sorted array", Arrays.asList(sortedArray2))));
@@ -146,10 +146,10 @@ public class SortController {
         Student[] originalArray6 = Arrays.copyOf(this.originalArray6, this.originalArray6.length);
         Student[] originalArray7 = Arrays.copyOf(this.originalArray7, this.originalArray7.length);
         Student[] originalArray8 = Arrays.copyOf(this.originalArray8, this.originalArray8.length);
-        Student[] sortedArray5 = sortService.radixSortInArray(originalArray5, 0, originalArray5.length - 1, true, true, SortObjectEnum.NUMBER);
-        Student[] sortedArray6 = sortService.radixSortInArray(originalArray6, 0, originalArray6.length - 1, false, true, SortObjectEnum.NUMBER);
-        Student[] sortedArray7 = sortService.radixSortInArray(originalArray7, 0, originalArray7.length - 1, true, false, SortObjectEnum.NUMBER);
-        Student[] sortedArray8 = sortService.radixSortInArray(originalArray8, 0, originalArray8.length - 1, false, false, SortObjectEnum.STRING);
+        Student[] sortedArray5 = sortService.radixSortInArray(originalArray5, 0, originalArray5.length - 1, true, true, SortedElementTypeEnum.NUMBER);
+        Student[] sortedArray6 = sortService.radixSortInArray(originalArray6, 0, originalArray6.length - 1, false, true, SortedElementTypeEnum.NUMBER);
+        Student[] sortedArray7 = sortService.radixSortInArray(originalArray7, 0, originalArray7.length - 1, true, false, SortedElementTypeEnum.NUMBER);
+        Student[] sortedArray8 = sortService.radixSortInArray(originalArray8, 0, originalArray8.length - 1, false, false, SortedElementTypeEnum.STRING);
         log.info(LogUtils.getLogMessage("radixSortInArray", "Sort to test stability"));
         log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray5)).addParameter("Asc-sorted array", Arrays.asList(sortedArray5))));
         log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Original array", Arrays.asList(this.originalArray6)).addParameter("Desc-sorted array", Arrays.asList(sortedArray6))));
@@ -158,7 +158,7 @@ public class SortController {
         // Sort huge amount of data
         Integer[] originalHugeArray1 = getHugeAmountOfIntegers();
         long timeMillisBeforeSort = SystemUtils.currentTimeMillis();
-        Integer[] sortedHugeArray1 = sortService.radixSortInArray(originalHugeArray1, 0, originalHugeArray1.length - 1, true, true, SortObjectEnum.NUMBER);
+        Integer[] sortedHugeArray1 = sortService.radixSortInArray(originalHugeArray1, 0, originalHugeArray1.length - 1, true, true, SortedElementTypeEnum.NUMBER);
         long timeMillisAfterSort = SystemUtils.currentTimeMillis();
         log.info(LogUtils.getLogMessage("radixSortInArray", "Sort huge amount of data"));
         log.info(LogUtils.getLogMessage("radixSortInArray", new ParametersToLog().addParameter("Time cost", SystemUtils.elapsedTimeSeconds(timeMillisBeforeSort, timeMillisAfterSort)).addParameter("Sorted elements", sortedHugeArray1.length)));
