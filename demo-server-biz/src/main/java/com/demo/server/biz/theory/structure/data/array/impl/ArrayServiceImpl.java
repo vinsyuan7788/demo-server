@@ -22,13 +22,8 @@ public class ArrayServiceImpl implements ArrayService {
 
     @Override
     public <T> T[] swap(T[] array, int i, int j) {
-        T t = array[i];
-        if (t instanceof Integer) {
-            Integer[] integerArray = new Integer[array.length];
-            for (int k = 0; k < integerArray.length; k++) {
-                integerArray[k] = (Integer) array[k];
-            }
-            return (T[]) arraySwapService.swapByBitOperation(integerArray, i, j);
+        if (array instanceof Integer[]) {
+            return (T[]) arraySwapService.swapByBitOperation((Integer[]) array, i, j);
         } else {
             return arraySwapService.swapByTemporaryVariable(array, i, j);
         }
