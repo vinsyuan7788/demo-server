@@ -45,7 +45,7 @@ public class ArraySortServiceImpl implements ArraySortService {
      * @param startIndex the start index of the array
      * @param endIndex the end index of the array
      * @param isAsc if the elements of the array are sorted in ascending order
-     * @param <T>
+     * @param <T> the generic type that extends Comparable interface
      * @return
      */
     @Override
@@ -71,8 +71,8 @@ public class ArraySortServiceImpl implements ArraySortService {
      * @param endIndex the end index of the array
      * @param isAsc if the elements of the array are sorted in ascending order
      * @param useLeastSignificantDigit if using least significant digit
-     * @param sortObjectEnum what type of object to be sorted
-     * @param <T>
+     * @param sortObjectEnum the type of elements to be sorted
+     * @param <T> the generic type that extends Comparable interface
      * @return
      */
     @Override
@@ -329,6 +329,7 @@ public class ArraySortServiceImpl implements ArraySortService {
         return bubbleToTheStart ? sortByBubblingToTheStart(array, startIndex, endIndex, isAsc) : sortByBubblingToTheEnd(array, startIndex, endIndex, isAsc);
     }
 
+    /*** Details of Sort Algorithms ***/
     /*** Details of Radix Sort ***/
     /**
      *
