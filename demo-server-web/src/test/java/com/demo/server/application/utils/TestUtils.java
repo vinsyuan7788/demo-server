@@ -14,12 +14,40 @@ public class TestUtils {
 
     @Test
     public void test() throws Exception {
-        testMatchUtils();
+//        System.out.println("Test MatchUtils:");
+//        testMatchUtils();
+//        System.out.println("TestMatchUtils:");
+//        testTimeFormatUtils();
+        System.out.println("TestGeoPositionUtils:");
+        testGeoPositionUtils();
     }
 
     private void testMatchUtils() throws Exception {
         MatchUtils.findLinesContainedInBothFiles("C:\\Users\\yuanxu\\Desktop\\text1.txt",
                 "C:\\Users\\yuanxu\\Desktop\\text2.txt",
                 "C:\\Users\\yuanxu\\Desktop\\output.txt");
+    }
+    
+    private void testTimeFormatUtils() {
+        long seconds = 10000L;
+        String timeString = TimeFormatUtils.parseSecondsToHMS(seconds);
+        System.out.println("Time string: " + timeString);
+    }
+
+    private void testGeoPositionUtils() {
+//        double lon1 = 116.308150D; double lat1 = 40.056878D;
+        double lon2 = 116.308151D; double lat2 = 40.056879D;
+        double lon1 = 116.364973D; double lat1 = 40.063597D;
+//        double lon2 = 116.510842D; double lat2 = 39.90777D;
+        double dist1 = GeoPositionUtils.distanceV1(lon1, lat1, lon2, lat2);
+        double dist2 = GeoPositionUtils.distanceV2(lon1, lat1, lon2, lat2);
+        double dist3 = GeoPositionUtils.distanceV3(lon1, lat1, lon2, lat2);
+        double dist4 = GeoPositionUtils.distanceV4(lon1, lat1, lon2, lat2);
+        double dist5 = GeoPositionUtils.distanceV5(lon1, lat1, lon2, lat2);
+        System.out.println("dist1: " + dist1);
+        System.out.println("dist2: " + dist2);
+        System.out.println("dist3: " + dist3);
+        System.out.println("dist4: " + dist4);
+        System.out.println("dist5: " + dist5);
     }
 }
