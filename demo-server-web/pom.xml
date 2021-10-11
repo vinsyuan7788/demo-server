@@ -193,6 +193,11 @@
             <artifactId>commons-beanutils</artifactId>
         </dependency>
 
+        <!-- Utilities -->
+        <dependency>
+            <groupId>org.gavaghan</groupId>
+            <artifactId>geodesy</artifactId>
+        </dependency>
 
         <!-- demo-server-biz -->
         <dependency>

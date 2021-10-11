@@ -36,8 +36,8 @@ public class TestUtils {
 
     private void testGeoPositionUtils() {
 //        double lon1 = 116.308150D; double lat1 = 40.056878D;
-        double lon2 = 116.308151D; double lat2 = 40.056879D;
-        double lon1 = 116.364973D; double lat1 = 40.063597D;
+        double lon2 = 113.95337027043473; double lat2 = 22.552806094742175;
+        double lon1 = 113.94765896307762; double lat1 = 22.555837270118194;
 //        double lon2 = 116.510842D; double lat2 = 39.90777D;
         double dist1 = GeoPositionUtils.distanceV1(lon1, lat1, lon2, lat2);
         double dist2 = GeoPositionUtils.distanceV2(lon1, lat1, lon2, lat2);

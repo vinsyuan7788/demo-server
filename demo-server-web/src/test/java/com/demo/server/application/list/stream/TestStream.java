@@ -1,8 +1,10 @@
 package com.demo.server.application.list.stream;
 
+import com.alibaba.fastjson.JSONObject;
 import com.demo.server.web.DemoServerApplication;
 import com.demo.server.application.list.stream.model.Student;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,6 +32,8 @@ public class TestStream {
         testEmptyListGroup();
         System.out.println("\ntestMapAndFlatMap:");
         testMapAndFlatMap();
+        System.out.println("\ntestDistinct:");
+        testDistinct();
     }
 
     private void testFilter() {
@@ -55,6 +59,8 @@ public class TestStream {
         list = Arrays.asList(s1, s2, s3, s4);
         studentsByLevel = list.stream().collect(Collectors.groupingBy(Student::getLevel));
         System.out.println(studentsByLevel);
+        Map<String, List<String>> namesByLevel = list.stream().collect(Collectors.groupingBy(Student::getLevel, Collectors.mapping(Student::getName, Collectors.toList())));
+        System.out.println(namesByLevel);
     }
 
     private void testListFlatten() {
@@ -75,6 +81,20 @@ public class TestStream {
         System.out.println(students);
         students = map.values().stream().flatMap(List::stream).collect(Collectors.toList());
         System.out.println(students);
+
+        // Build test data
+        String str1 = "1,2,3,4,5";
+        String str2 = "2,3,4,5,6,7,8,9,10";
+        String str3 = null;
+        Collection<String> collection = Arrays.asList(str1, str2, str3);
+        // Perform testing
+        List<Long> numbers = collection.stream()
+                .filter(StringUtils::isNotBlank)
+                .map(str -> Arrays.asList(str.split(",")))
+                .flatMap(List::stream)
+                .map(Long::valueOf)
+                .distinct().collect(Collectors.toList());
+        System.out.println(numbers);
     }
 
     private void testEmptyListMap() {
@@ -104,5 +124,18 @@ public class TestStream {
         System.out.println(longs2);
         List<ListIterator<Long>> longListIterators = longLists.stream().map(List::listIterator).collect(Collectors.toList());
         System.out.println(longListIterators);
+    }
+
+    private void testDistinct() {
+        // Build test data
+        Student s1 = Student.builder().level("level_one").name("Tom").build();
+        Student s2 = Student.builder().level("level_one").name("Tom").build();
+        Student s3 = Student.builder().level("level_two").name("Yoyo").build();
+        Student s4 = Student.builder().level("level_two").name("Yoyo").build();
+        List<Student> list = Arrays.asList(s1, s2, s3, s4);
+        System.out.println("original list: " + list.size() + " | " + JSONObject.toJSONString(list));
+        // Perform testing
+        List<Student> distinctList = list.stream().distinct().collect(Collectors.toList());
+        System.out.println("distinct list: " + distinctList.size() + " | " + JSONObject.toJSONString(distinctList));
     }
 }

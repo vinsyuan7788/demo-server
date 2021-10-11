@@ -5,6 +5,10 @@ import java.util.Date;
 public class DemoRecord {
     private Long id;
 
+    private String demoName;
+
+    private String demoAddress;
+
     private Date created;
 
     private Date updated;
@@ -15,14 +19,28 @@ public class DemoRecord {
 
     private String deleted;
 
-    private String demoName;
-
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getDemoName() {
+        return demoName;
+    }
+
+    public void setDemoName(String demoName) {
+        this.demoName = demoName == null ? null : demoName.trim();
+    }
+
+    public String getDemoAddress() {
+        return demoAddress;
+    }
+
+    public void setDemoAddress(String demoAddress) {
+        this.demoAddress = demoAddress == null ? null : demoAddress.trim();
     }
 
     public Date getCreated() {
@@ -63,26 +81,5 @@ public class DemoRecord {
 
     public void setDeleted(String deleted) {
         this.deleted = deleted == null ? null : deleted.trim();
-    }
-
-    public String getDemoName() {
-        return demoName;
-    }
-
-    public void setDemoName(String demoName) {
-        this.demoName = demoName == null ? null : demoName.trim();
-    }
-
-    @Override
-    public String toString() {
-        return "DemoRecord{" +
-                "id=" + id +
-                ", created=" + created +
-                ", updated=" + updated +
-                ", creator=" + creator +
-                ", modifier=" + modifier +
-                ", deleted=" + deleted +
-                ", demoName=" + demoName +
-                '}';
     }
 }

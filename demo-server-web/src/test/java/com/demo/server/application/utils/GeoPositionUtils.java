@@ -156,4 +156,10 @@ public class GeoPositionUtils {
     private static double rad(double d) {
         return d * Math.PI / 180.0;
     }
+
+    public static double distanceV6(double sourceLongitude, double sourceLatitude, double targetLongitude, double targetLatitude) {
+        double b = Math.abs((sourceLatitude - targetLatitude) * METER_PER_LATITUDE);
+        double a = Math.abs((sourceLongitude - targetLongitude) * METER_PER_LONGITUDE);
+        return Math.sqrt((a * a + b * b));
+    }
 }
