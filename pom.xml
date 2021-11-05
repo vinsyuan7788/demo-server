@@ -13,7 +13,7 @@
         <module>demo-server-dal</module>
         <module>demo-server-core</module>
     </modules>
-    <name>demo-server1</name>
+    <name>demo-server</name>
     <description>Demo Server Application for Spring Boot and Cloud</description>
 
     <properties>
