@@ -8,14 +8,13 @@
     <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>demo-server-web</module>
-        <module>demo-server-dto</module>
         <module>demo-server-biz</module>
         <module>demo-server-common</module>
         <module>demo-server-dal</module>
         <module>demo-server-core</module>
     </modules>
     <name>demo-server</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Demo Server Application for Spring Boot and Cloud</description>
 
     <properties>
         <!-- Versions for Basic Dependencies -->
@@ -49,9 +48,9 @@
         <!-- Versions for Custom Dependencies -->
         <demo-server-biz.version>1.0.0-SNAPSHOT</demo-server-biz.version>
         <demo-server-dal.version>1.0.0-SNAPSHOT</demo-server-dal.version>
-        <demo-server-dto.version>1.0.0-SNAPSHOT</demo-server-dto.version>
         <demo-server-common.version>1.0.0-SNAPSHOT</demo-server-common.version>
         <demo-server-core.version>1.0.0-SNAPSHOT</demo-server-core.version>
+        <demo-server-dto.version>1.0.0-SNAPSHOT</demo-server-dto.version>
         <demo-base-common.version>1.0.0-SNAPSHOT</demo-base-common.version>
         <demo-base-cache.version>1.0.0-SNAPSHOT</demo-base-cache.version>
         <demo-base-swagger.version>1.0.0-SNAPSHOT</demo-base-swagger.version>
@@ -386,12 +385,6 @@
                 <artifactId>demo-server-dal</artifactId>
                 <version>${demo-server-dal.version}</version>
             </dependency>
-            <!-- demo-server-dto -->
-            <dependency>
-                <groupId>com.demo</groupId>
-                <artifactId>demo-server-dto</artifactId>
-                <version>${demo-server-dto.version}</version>
-            </dependency>
             <!-- demo-server-common -->
             <dependency>
                 <groupId>com.demo</groupId>
@@ -403,6 +396,12 @@
                 <groupId>com.demo</groupId>
                 <artifactId>demo-server-core</artifactId>
                 <version>${demo-server-core.version}</version>
+            </dependency>
+            <!-- demo-server-dto -->
+            <dependency>
+                <groupId>com.demo</groupId>
+                <artifactId>demo-server-dto</artifactId>
+                <version>${demo-server-dto.version}</version>
             </dependency>
             <!-- demo-base-common -->
             <dependency>
@@ -426,8 +425,10 @@
     </dependencyManagement>
 
     <!-- To introduce the managed dependencies in actual -->
-    <!--<dependencies>
-    </dependencies>-->
+    <!--
+    <dependencies>
+    </dependencies>
+    -->
 
     <profiles>
         <profile>
