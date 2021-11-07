@@ -29,6 +29,11 @@ public class DataSourceServiceImpl implements DataSourceService {
 
     private final Long defaultOperator = 10001L;
     private final String[] optionalDemoNames = { "demo1", "demo2", "demo3" };
+    private final String[] optionalDemoAddresses = {
+            "广东省深圳市南山区长岭村西区12幢503房",
+            "广东省汕头市金平区梅园北区5幢304房",
+            "湖北省武汉市桃林区金满堂小区13幢2201房",
+    };
     private final Random random = new Random();
 
     @Override
@@ -36,11 +41,13 @@ public class DataSourceServiceImpl implements DataSourceService {
         // Get necessary information
         Long id = idService.getStandaloneId();
         String demoName = optionalDemoNames[random.nextInt(optionalDemoNames.length)];
+        String demoAddress = optionalDemoAddresses[random.nextInt(optionalDemoAddresses.length)];
         Date nowDate = new Date();
         // Insert record
         DemoRecord demoRecord = new DemoRecord();
         demoRecord.setId(id);
         demoRecord.setDemoName(demoName);
+        demoRecord.setDemoAddress(demoAddress);
         demoRecord.setCreator(defaultOperator);
         demoRecord.setCreated(nowDate);
         demoRecord.setModifier(defaultOperator);
