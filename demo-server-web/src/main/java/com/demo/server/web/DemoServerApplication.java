@@ -19,6 +19,6 @@ public class DemoServerApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DemoServerApplication.class, args);
-        log.info(LogUtils.getLogMessage("Server application is started"));
+        log.info(LogUtils.getLogMessage("Server application has been started successfully"));
     }
 }
