@@ -69,7 +69,7 @@ public class DataSourceServiceImpl implements DataSourceService {
     @Override
     public Boolean removeAllRecords() {
         List<DemoRecord> demoRecords = demoRecordDao.selectAllRecords();
-        List<Long> ids = demoRecords.stream().map(DemoRecord::getId).collect(Collectors.toList());
+        List<Long> ids = demoRecords.stream().map(DemoRecord::getId).distinct().collect(Collectors.toList());
         return demoRecordDao.deleteRecordsLogically(ids);
     }
 }
