@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.demo.base.common.exception.base.BaseException;
 import com.demo.base.common.utils.IPUtils;
 import com.demo.base.common.utils.LogUtils;
-import com.demo.base.common.utils.utils.ParametersToLog;
+import com.demo.base.common.utils.bean.ParametersToLog;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.core.env.Environment;

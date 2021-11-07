@@ -1,7 +1,7 @@
 package com.demo.server.common.utils;
 
 import com.demo.base.common.utils.LogUtils;
-import com.demo.base.common.utils.utils.ParametersToLog;
+import com.demo.base.common.utils.bean.ParametersToLog;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.ListUtils;
 import org.springframework.util.CollectionUtils;

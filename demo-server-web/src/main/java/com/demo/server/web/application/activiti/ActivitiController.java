@@ -3,7 +3,7 @@ package com.demo.server.web.application.activiti;
 import com.demo.base.common.response.bean.CommonResponse;
 import com.demo.base.common.response.enums.ResponseEnum;
 import com.demo.base.common.utils.LogUtils;
-import com.demo.base.common.utils.utils.ParametersToLog;
+import com.demo.base.common.utils.bean.ParametersToLog;
 import com.demo.server.biz.application.activiti.ActivitiService;
 import com.demo.server.common.utils.SystemUtils;
 import io.swagger.annotations.Api;

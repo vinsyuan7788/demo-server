@@ -1,7 +1,7 @@
 package com.demo.server.biz.application.springboot.impl;
 
 import com.demo.base.common.utils.LogUtils;
-import com.demo.base.common.utils.utils.ParametersToLog;
+import com.demo.base.common.utils.bean.ParametersToLog;
 import com.demo.server.biz.application.springboot.RedisService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

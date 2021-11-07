@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.demo.base.common.response.bean.CommonResponse;
 import com.demo.base.common.response.enums.ResponseEnum;
 import com.demo.base.common.utils.LogUtils;
-import com.demo.base.common.utils.utils.ParametersToLog;
+import com.demo.base.common.utils.bean.ParametersToLog;
 import com.demo.server.common.utils.RestTemplateUtils;
 import com.demo.server.common.utils.SystemUtils;
 import io.swagger.annotations.Api;

@@ -3,7 +3,7 @@ package com.demo.server.web.theory.algorithm.fundamental.implementation;
 import com.demo.base.common.response.bean.CommonResponse;
 import com.demo.base.common.response.enums.ResponseEnum;
 import com.demo.base.common.utils.LogUtils;
-import com.demo.base.common.utils.utils.ParametersToLog;
+import com.demo.base.common.utils.bean.ParametersToLog;
 import com.demo.server.biz.theory.algorithm.fundamental.SortService;
 import com.demo.server.biz.theory.structure.data.array.utils.enums.SortedElementTypeEnum;
 import com.demo.server.biz.theory.structure.data.array.utils.model.Student;
