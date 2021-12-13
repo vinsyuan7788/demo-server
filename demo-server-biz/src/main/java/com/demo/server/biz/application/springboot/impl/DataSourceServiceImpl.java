@@ -27,8 +27,10 @@ public class DataSourceServiceImpl implements DataSourceService {
     private DemoRecordDao demoRecordDao;
     @Autowired
     private IdService idService;
-    @Autowired
-    private SnowflakeIdService snowflakeIdService;
+
+    // todo v.y. next step is to integrate snow-flake service through base project
+//    @Autowired
+//    private SnowflakeIdService snowflakeIdService;
 
     private final Long defaultOperator = 10001L;
     private final String[] optionalDemoNames = { "demo1", "demo2", "demo3" };

@@ -13,5 +13,11 @@ public interface IdService {
      */
     Long getStandaloneId();
 
-    Long getLongSnowflakeId();
+    // todo v.y. next step is to integrate snow-flake service through base project
+    /**
+     *  Get ID from snow-flake service
+     *
+     * @return
+     */
+//    Long getLongSnowflakeId();
 }

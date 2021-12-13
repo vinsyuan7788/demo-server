@@ -27,8 +27,6 @@ public class IdServiceImpl implements IdService {
     @Value("${snowflake.timeout}")
     private Integer snowflakeTimeout;
 
-    private volatile Client client;
-
     @Override
     public Long getStandaloneId() {
         // Get the string representing current date, which is 17 digits
@@ -45,25 +43,28 @@ public class IdServiceImpl implements IdService {
         return Long.valueOf(prefix + suffix);
     }
 
-    @Override
-    public Long getLongSnowflakeId() {
-        if (client == null) {
-            client = getClient();
-        }
-        try {
-            return client.getSnowFlakeId(0);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0L;
-        }
-    }
-
-    private Client getClient() {
-        try {
-            return new HaimaClient(snowflakeServers, snowflakeTimeout);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+    // todo v.y. next step is to integrate snow-flake service through base project
+//    private volatile Client client;
+//
+//    @Override
+//    public Long getLongSnowflakeId() {
+//        if (client == null) {
+//            client = getClient();
+//        }
+//        try {
+//            return client.getSnowFlakeId(0);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return 0L;
+//        }
+//    }
+//
+//    private Client getClient() {
+//        try {
+//            return new HaimaClient(snowflakeServers, snowflakeTimeout);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
 }
