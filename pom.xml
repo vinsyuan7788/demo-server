@@ -54,6 +54,7 @@
         <demo-base-common.version>1.0.0-SNAPSHOT</demo-base-common.version>
         <demo-base-cache.version>1.0.0-SNAPSHOT</demo-base-cache.version>
         <demo-base-swagger.version>1.0.0-SNAPSHOT</demo-base-swagger.version>
+        <demo-base-snowflake.version>1.0.0-SNAPSHOT</demo-base-snowflake.version>
     </properties>
 
     <dependencyManagement>
@@ -433,6 +434,12 @@
                 <artifactId>demo-base-swagger</artifactId>
                 <version>${demo-base-swagger.version}</version>
             </dependency>
+            <!-- demo-base-snowflake -->
+            <!--<dependency>
+                <groupId>com.demo</groupId>
+                <artifactId>demo-base-snowflake</artifactId>
+                <version>${demo-base-snowflake.version}</version>
+            </dependency>-->
         </dependencies>
     </dependencyManagement>
 

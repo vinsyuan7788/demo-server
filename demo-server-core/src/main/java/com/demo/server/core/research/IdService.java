@@ -12,4 +12,6 @@ public interface IdService {
      * @return
      */
     Long getStandaloneId();
+
+    Long getLongSnowflakeId();
 }

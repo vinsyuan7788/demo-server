@@ -1,6 +1,7 @@
 package com.demo.server.biz.application.springboot.impl;
 
 import com.demo.base.common.enums.DeleteEnum;
+import com.demo.base.common.snowflake.SnowflakeIdService;
 import com.demo.server.biz.application.springboot.DataSourceService;
 import com.demo.server.core.research.IdService;
 import com.demo.server.dal.application.DemoRecordDao;
@@ -26,6 +27,8 @@ public class DataSourceServiceImpl implements DataSourceService {
     private DemoRecordDao demoRecordDao;
     @Autowired
     private IdService idService;
+    @Autowired
+    private SnowflakeIdService snowflakeIdService;
 
     private final Long defaultOperator = 10001L;
     private final String[] optionalDemoNames = { "demo1", "demo2", "demo3" };
@@ -40,6 +43,8 @@ public class DataSourceServiceImpl implements DataSourceService {
     public Boolean addRecord() {
         // Get necessary information
         Long id = idService.getStandaloneId();
+//        Long id = snowflakeIdService.getLongSnowflakeId();
+//        Long id = idService.getLongSnowflakeId();
         String demoName = optionalDemoNames[random.nextInt(optionalDemoNames.length)];
         String demoAddress = optionalDemoAddresses[random.nextInt(optionalDemoAddresses.length)];
         Date nowDate = new Date();

@@ -40,5 +40,10 @@
             <groupId>com.demo</groupId>
             <artifactId>demo-base-common</artifactId>
         </dependency>
+        <!-- demo-base-snowflake -->
+        <!--<dependency>
+            <groupId>com.demo</groupId>
+            <artifactId>demo-base-snowflake</artifactId>
+        </dependency>-->
     </dependencies>
 </project>

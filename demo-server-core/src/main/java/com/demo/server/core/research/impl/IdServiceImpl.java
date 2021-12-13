@@ -1,10 +1,15 @@
 package com.demo.server.core.research.impl;
 
+import com.demo.base.common.snowflake.SnowflakeIdService;
 import com.demo.base.common.utils.DateUtils;
+import com.demo.haima.client.Client;
+import com.demo.haima.client.HaimaClient;
 import com.demo.server.common.constant.CommonConstant;
 import com.demo.server.common.utils.SystemUtils;
 import com.demo.server.core.research.IdService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
@@ -16,6 +21,13 @@ import java.util.Random;
 @Slf4j
 @Service
 public class IdServiceImpl implements IdService {
+
+    @Value("${snowflake.servers}")
+    private String snowflakeServers;
+    @Value("${snowflake.timeout}")
+    private Integer snowflakeTimeout;
+
+    private volatile Client client;
 
     @Override
     public Long getStandaloneId() {
@@ -31,5 +43,27 @@ public class IdServiceImpl implements IdService {
         String suffix = suffixBuffer.toString();
         // Get ID, which is 19 digits that Long-typed can contain
         return Long.valueOf(prefix + suffix);
+    }
+
+    @Override
+    public Long getLongSnowflakeId() {
+        if (client == null) {
+            client = getClient();
+        }
+        try {
+            return client.getSnowFlakeId(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0L;
+        }
+    }
+
+    private Client getClient() {
+        try {
+            return new HaimaClient(snowflakeServers, snowflakeTimeout);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
